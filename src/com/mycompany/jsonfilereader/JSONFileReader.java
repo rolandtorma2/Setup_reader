@@ -51,10 +51,58 @@ public class JSONFileReader {
         System.out.println("Front Left Tyre : " + tyreClass.tyrePressure.get(FRONT_LEFT) + " psi");
         System.out.println("Front Right Tyre : " + tyreClass.tyrePressure.get(FRONT_RIGHT) + " psi");
         System.out.println("Rear Left Tyre : " + tyreClass.tyrePressure.get(REAR_LEFT) + " psi");
-        System.out.println("Rear Right Tyre : " + tyreClass.tyrePressure.get(REAR_RIGHT) + " psi");
-        System.out.println();
-
+        System.out.println("Rear Right Tyre : " + tyreClass.tyrePressure.get(REAR_RIGHT) + " psi\n");
+        
         return tyreClass;
+    }
+    
+    public static Alignment saveAlignmentData (JSONObject setupAlignment) {
+        //getting the alignment data
+            JSONArray camber = (JSONArray) setupAlignment.get("camber");
+            JSONArray toe = (JSONArray) setupAlignment.get("toe");
+            JSONArray staticCamber = (JSONArray) setupAlignment.get("staticCamber");
+            JSONArray toeOutLinear = (JSONArray) setupAlignment.get("toeOutLinear");
+            long casterLF = (long) setupAlignment.get("casterLF");
+            long casterRF = (long) setupAlignment.get("casterRF");
+            long steerRatio = (long) setupAlignment.get("steerRatio");
+
+            //making alignment class
+            Alignment alignmentClass = new Alignment(camber, toe, staticCamber, toeOutLinear, casterLF, casterRF, steerRatio);
+
+            //CAMBER
+            System.out.println("Front left camber : " + alignmentClass.camber.get(CAMBER_FRONT_LEFT) + "%");
+            System.out.println("Front right camber : " + alignmentClass.camber.get(CAMBER_FRONT_RIGHT) + "%");
+            System.out.println("Rear left camber : " + alignmentClass.camber.get(CAMBER_REAR_LEFT) + "%");
+            System.out.println("Rear right camber : " + alignmentClass.camber.get(CAMBER_REAR_RIGHT) + "%\n");
+            
+
+            //TOE
+            System.out.println("Front left toe : " + alignmentClass.toe.get(TOE_FRONT_LEFT));
+            System.out.println("Front right toe : " + alignmentClass.toe.get(TOE_FRONT_RIGHT));
+            System.out.println("Rear left toe : " + alignmentClass.toe.get(TOE_REAR_LEFT));
+            System.out.println("Rear right toe : " + alignmentClass.toe.get(TOE_REAR_RIGHT) + "\n");
+        
+
+            //STATIC CAMBER
+            System.out.println("Front left static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_FRONT_LEFT) + " degrees");
+            System.out.println("Front right static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_FRONT_RIGHT) + " degrees");
+            System.out.println("Rear left static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_REAR_LEFT) + " degrees");
+            System.out.println("Rear right static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_REAR_RIGHT) + " degrees\n");
+        
+
+            //TOE OUT LINEAR
+            System.out.println("Front left toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_FRONT_LEFT));
+            System.out.println("Front right toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_FRONT_RIGHT));
+            System.out.println("Rear left toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_REAR_LEFT));
+            System.out.println("Rear right toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_REAR_RIGHT) + "\n");
+
+
+            //CASTER LEFT FRONT
+            System.out.println("Left Front Caster : " + alignmentClass.casterLF);
+            System.out.println("Right Front Caster : " + alignmentClass.casterRF);
+            System.out.println("Steering ratio : " + alignmentClass.steerRatio + "\n");
+            
+            return alignmentClass;
     }
     
     
@@ -83,52 +131,7 @@ public class JSONFileReader {
 
             //Alignment
             JSONObject alignment = (JSONObject) basicSetup.get("alignment");
-
-            //getting the alignment data
-            JSONArray camber = (JSONArray) alignment.get("camber");
-            JSONArray toe = (JSONArray) alignment.get("toe");
-            JSONArray staticCamber = (JSONArray) alignment.get("staticCamber");
-            JSONArray toeOutLinear = (JSONArray) alignment.get("toeOutLinear");
-            long casterLF = (long) alignment.get("casterLF");
-            long casterRF = (long) alignment.get("casterRF");
-            long steerRatio = (long) alignment.get("steerRatio");
-
-            //making alignment class
-            Alignment alignmentClass = new Alignment(camber, toe, staticCamber, toeOutLinear, casterLF, casterRF, steerRatio);
-
-            //CAMBER
-            System.out.println("Front left camber : " + alignmentClass.camber.get(CAMBER_FRONT_LEFT) + "%");
-            System.out.println("Front right camber : " + alignmentClass.camber.get(CAMBER_FRONT_RIGHT) + "%");
-            System.out.println("Rear left camber : " + alignmentClass.camber.get(CAMBER_REAR_LEFT) + "%");
-            System.out.println("Rear right camber : " + alignmentClass.camber.get(CAMBER_REAR_RIGHT) + "%");
-            System.out.println();
-
-            //TOE
-            System.out.println("Front left toe : " + alignmentClass.toe.get(TOE_FRONT_LEFT));
-            System.out.println("Front right toe : " + alignmentClass.toe.get(TOE_FRONT_RIGHT));
-            System.out.println("Rear left toe : " + alignmentClass.toe.get(TOE_REAR_LEFT));
-            System.out.println("Rear right toe : " + alignmentClass.toe.get(TOE_REAR_RIGHT));
-            System.out.println();
-
-            //STATIC CAMBER
-            System.out.println("Front left static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_FRONT_LEFT) + " degrees");
-            System.out.println("Front right static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_FRONT_RIGHT) + " degrees");
-            System.out.println("Rear left static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_REAR_LEFT) + " degrees");
-            System.out.println("Rear right static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_REAR_RIGHT) + " degrees");
-            System.out.println();
-
-            //TOE OUT LINEAR
-            System.out.println("Front left toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_FRONT_LEFT));
-            System.out.println("Front right toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_FRONT_RIGHT));
-            System.out.println("Rear left toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_REAR_LEFT));
-            System.out.println("Rear right toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_REAR_RIGHT));
-            System.out.println();
-
-            //CASTER LEFT FRONT
-            System.out.println("Left Front Caster : " + alignmentClass.casterLF);
-            System.out.println("Right Front Caster : " + alignmentClass.casterRF);
-            System.out.println("Steering ratio : " + alignmentClass.steerRatio);
-            System.out.println();
+            Alignment y = saveAlignmentData(alignment);
 
             //Electronics 
             JSONObject electronics = (JSONObject) basicSetup.get("electronics");
@@ -165,14 +168,6 @@ public class JSONFileReader {
             long rearBrakePadCompound = (long) strategy.get("rearBrakePadCompound");
             double fuelPerLap = (double) strategy.get("fuelPerLap");
 
-            //JSONArray pitStopStrategy = (JSONArray) mainJsonObject.get("pitStrategy");
-            /*
-           System.out.println();
-           System.out.println();
-           System.out.println();
-           System.out.println();
-           System.out.println();
-             */
         } catch (Exception ex) {
             ex.printStackTrace();
         }
