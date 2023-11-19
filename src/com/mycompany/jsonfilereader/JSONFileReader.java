@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -189,11 +188,12 @@ public class JSONFileReader {
 
         //Brake data:
         System.out.println("Braketorque : " + brakeTorque);
-        System.out.println("Brake Bias : " + brakeBias);
+        System.out.println("Brake Bias : " + brakeBias + "\n");
 
         return mechanicalBalanceClass;
     }
-
+    
+    //Dampers data : 
     public static Dampers saveDamperData(JSONObject saveDamper) {
         JSONArray bumpSlow = (JSONArray) saveDamper.get("bumpSlow");
         JSONArray bumpFast = (JSONArray) saveDamper.get("bumpFast");
@@ -207,12 +207,51 @@ public class JSONFileReader {
         System.out.println("Bumpstop slow front left: " + dampersClass.bumpSlow.get(BUMP_SLOW_FRONT_LEFT));
         System.out.println("Bumpstop slow front right: " + dampersClass.bumpSlow.get(BUMP_SLOW_FRONT_RIGHT));
         System.out.println("Bumpstop slow rear left: " + dampersClass.bumpSlow.get(BUMP_FAST_REAR_LEFT));
-        System.out.println("Bumpstop slow rear right: " + dampersClass.bumpSlow.get(BUMP_FAST_REAR_RIGHT));
+        System.out.println("Bumpstop slow rear right: " + dampersClass.bumpSlow.get(BUMP_FAST_REAR_RIGHT)+ "\n");
         
+        //Bumpfast data : 
+        System.out.println("Bumpstop fast front left: " + dampersClass.bumpFast.get(BUMP_FAST_FRONT_LEFT));
+        System.out.println("Bumpstop fast front left: " + dampersClass.bumpFast.get(BUMP_FAST_FRONT_RIGHT));
+        System.out.println("Bumpstop fast front left: " + dampersClass.bumpFast.get(BUMP_FAST_REAR_LEFT));
+        System.out.println("Bumpstop fast front left: " + dampersClass.bumpFast.get(BUMP_FAST_REAR_RIGHT)+ "\n");
+        
+        //Rebound slow data : 
+        System.out.println("Rebound slow front left: " + dampersClass.reboundSlow.get(REBOUND_SLOW_FRONT_LEFT));
+        System.out.println("Rebound slow front left: " + dampersClass.reboundSlow.get(REBOUND_SLOW_FRONT_RIGHT));
+        System.out.println("Rebound slow front left: " + dampersClass.reboundSlow.get(REBOUND_SLOW_REAR_LEFT));
+        System.out.println("Rebound slow front left: " + dampersClass.reboundSlow.get(REBOUND_SLOW_REAR_RIGHT)+ "\n");
+        
+        //Rebound fast data : 
+        System.out.println("Rebound fast front left: " + dampersClass.reboundFast.get(REBOUND_FAST_FRONT_LEFT));
+        System.out.println("Rebound fast front left: " + dampersClass.reboundFast.get(REBOUND_FAST_FRONT_RIGHT));
+        System.out.println("Rebound fast front left: " + dampersClass.reboundFast.get(REBOUND_FAST_REAR_LEFT));
+        System.out.println("Rebound fast front left: " + dampersClass.reboundFast.get(REBOUND_FAST_REAR_RIGHT) + "\n");
               
         return null;
     }
-
+    
+    //Aerobalance method : 
+    public static AeroBalance saveAeroBalanceData(JSONObject saveAeroBalance) {
+        
+        JSONArray rideHeight = (JSONArray) saveAeroBalance.get("rideHeight");
+        JSONArray rodLength = (JSONArray) saveAeroBalance.get("rodLength");
+        JSONArray brakeDuct = (JSONArray) saveAeroBalance.get("brakeDuct");
+        long splitter = (long) saveAeroBalance.get("splitter");
+        long rearWing = (long) saveAeroBalance.get("rearWing");
+        
+        AeroBalance aeroBalanceClass = new AeroBalance(rideHeight,rodLength,brakeDuct,splitter,rearWing );
+        
+         System.out.println("Ride height front left: " + aeroBalanceClass.rideHeight.get(RIDE_HEIGHT_FRONT_LEFT));
+        System.out.println("Ride height front right: " + aeroBalanceClass.rideHeight.get(RIDE_HEIGHT_FRONT_RIGHT));
+        System.out.println("Ride height rear left: " + aeroBalanceClass.rideHeight.get(RIDE_HEIGHT_REAR_LEFT));
+        System.out.println("Ride height rear right: " + aeroBalanceClass.rideHeight.get(RIDE_HEIGHT_REAR_RIGHT) + "\n");
+        
+        
+        
+        return aeroBalanceClass;
+    }
+    
+    
     //main
     public static void main(String[] args) throws FileNotFoundException, ParseException {
 
@@ -253,13 +292,21 @@ public class JSONFileReader {
             Strategy stragetyData = saveStrategyData(strategy);
 
             //Advanced setup data :  
+            
+            //MechanicalBalance data : 
             System.out.println("Mechanical Balance data : \n");
             JSONObject mechanicalBalance = (JSONObject) advancedSetup.get("mechanicalBalance");
             MechanicalBalance mechanicalData = saveMechanicalBalanceData(mechanicalBalance);
             
+            //Dampers data : 
             System.out.println("Bumpstop slow data : \n");
             JSONObject dampers = (JSONObject) advancedSetup.get("dampers");
             Dampers dampersData = saveDamperData(dampers);
+            
+            //Aerobalance data : 
+            System.out.println("Aerobalance data : \n");
+            JSONObject aeroBalance = (JSONObject) advancedSetup.get("aeroBalance");
+            AeroBalance aeroBalanceData = saveAeroBalanceData(aeroBalance);
 
             //TrackBopType
             System.out.println("");
