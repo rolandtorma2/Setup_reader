@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< Updated upstream
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Tyres.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Alignment.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/BasicSetup.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Utils.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Strategy.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/JSONFileReader.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Setup.java</file>
+        </group>
+>>>>>>> Stashed changes
     </open-files>
 </project-private>
