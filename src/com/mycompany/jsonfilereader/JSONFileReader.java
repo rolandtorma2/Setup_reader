@@ -36,7 +36,9 @@ public class JSONFileReader {
             return jsonText;
         }
     }
-
+    
+    
+    //tyres method
     public static Tyres saveTyreData(JSONObject setupTyres) {
         long tyreCompound = (long) setupTyres.get("tyreCompound");
         JSONArray tyrePressure = (JSONArray) setupTyres.get("tyrePressure");
@@ -55,7 +57,8 @@ public class JSONFileReader {
 
         return tyreClass;
     }
-
+    
+    //Alignment method
     public static Alignment saveAlignmentData(JSONObject setupAlignment) {
         //getting the alignment data
         JSONArray camber = (JSONArray) setupAlignment.get("camber");
@@ -101,6 +104,7 @@ public class JSONFileReader {
         return alignmentClass;
     }
     
+    //Electronics method
     public static Electronics saveElectronicsData(JSONObject saveElectronics) {
         //getting the electronics data 
         long tC1 = (long) saveElectronics.get("tC1");
@@ -126,7 +130,23 @@ public class JSONFileReader {
         
         return electronicsClass;
     }
-
+    
+    //strategy method
+    public static Strategy saveStrategyData(JSONObject saveStrategy){
+        
+            long fuel = (long) saveStrategy.get("fuel");
+            long nPitStops = (long) saveStrategy.get("nPitStops");
+            long tyreSet = (long) saveStrategy.get("tyreSet");
+            long frontBrakePadCompound = (long) saveStrategy.get("frontBrakePadCompound");
+            long rearBrakePadCompound = (long) saveStrategy.get("rearBrakePadCompound");
+            double fuelPerLap = (double) saveStrategy.get("fuelPerLap");
+                    
+            Strategy strategyClass = new Strategy(fuel,nPitStops,tyreSet,frontBrakePadCompound,rearBrakePadCompound,fuelPerLap);
+            return strategyClass;
+    }
+    
+    
+    
     //main
     public static void main(String[] args) throws FileNotFoundException, ParseException {
 
@@ -159,13 +179,9 @@ public class JSONFileReader {
             
             //Strategy
             JSONObject strategy = (JSONObject) basicSetup.get("strategy");
-
-            long fuel = (long) strategy.get("fuel");
-            long nPitStops = (long) strategy.get("nPitStops");
-            long tyreSet = (long) strategy.get("tyreSet");
-            long frontBrakePadCompound = (long) strategy.get("frontBrakePadCompound");
-            long rearBrakePadCompound = (long) strategy.get("rearBrakePadCompound");
-            double fuelPerLap = (double) strategy.get("fuelPerLap");
+            Strategy stragetyData = saveStrategyData(strategy);
+            
+           
 
         } catch (Exception ex) {
             ex.printStackTrace();
