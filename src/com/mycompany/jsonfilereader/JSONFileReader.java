@@ -39,8 +39,6 @@ public class JSONFileReader {
     }
 
     //Basic setup methods : 
-    
-    
     //tyres method
     public static Tyres saveTyreData(JSONObject setupTyres) {
         long tyreCompound = (long) setupTyres.get("tyreCompound");
@@ -53,9 +51,8 @@ public class JSONFileReader {
         //Outputting the information about tyres to the console
         System.out.println("Tyre Compound : " + tyreClass.tyreCompound);
         System.out.println("Tyre Pressures : ");
-        
+
         //Tyres data : 
-        
         System.out.println("Front Left Tyre : " + tyreClass.tyrePressure.get(FRONT_LEFT) + " psi");
         System.out.println("Front Right Tyre : " + tyreClass.tyrePressure.get(FRONT_RIGHT) + " psi");
         System.out.println("Rear Left Tyre : " + tyreClass.tyrePressure.get(REAR_LEFT) + " psi");
@@ -105,7 +102,7 @@ public class JSONFileReader {
         //CASTER FRONT data : 
         System.out.println("Left Front Caster : " + alignmentClass.casterLF);
         System.out.println("Right Front Caster : " + alignmentClass.casterRF);
-        
+
         //Steering ratio data : 
         System.out.println("Steering ratio : " + alignmentClass.steerRatio + "\n");
 
@@ -163,28 +160,27 @@ public class JSONFileReader {
     }
 
     //Advanced setup methods  : 
-    
     //MechanicalBalance method
     public static MechanicalBalance saveMechanicalBalanceData(JSONObject saveMechanicalBalance) {
         long aRBFront = (long) saveMechanicalBalance.get("aRBFront");
-        long aRBRear = (long)  saveMechanicalBalance.get("aRBRear");
+        long aRBRear = (long) saveMechanicalBalance.get("aRBRear");
         JSONArray wheelRate = (JSONArray) saveMechanicalBalance.get("wheelRate");
         JSONArray bumpStopRateUp = (JSONArray) saveMechanicalBalance.get("bumpStopRateUp");
         JSONArray bumpStopRateDn = (JSONArray) saveMechanicalBalance.get("bumpStopRateDn");
         JSONArray bumpStopWindow = (JSONArray) saveMechanicalBalance.get("bumpStopWindow");
         long brakeTorque = (long) saveMechanicalBalance.get("brakeTorque");
         long brakeBias = (long) saveMechanicalBalance.get("brakeBias");
-        
-        MechanicalBalance mechanicalBalanceClass = new MechanicalBalance(wheelRate,bumpStopRateUp,bumpStopRateDn,bumpStopWindow,aRBFront,aRBRear,brakeTorque,brakeBias);
-        
+
+        MechanicalBalance mechanicalBalanceClass = new MechanicalBalance(wheelRate, bumpStopRateUp, bumpStopRateDn, bumpStopWindow, aRBFront, aRBRear, brakeTorque, brakeBias);
+
         System.out.println("ARB Front : " + aRBFront);
         System.out.println("ARB Rear : " + aRBRear);
         //Wheelrate data : 
         System.out.println("Wheelrate Front left : " + wheelRate);
 
         //Bumpstop Rate Up data : 
-        System.out.println("Bumpstop Rateup Front Left : " + bumpStopRateUp );
-        
+        System.out.println("Bumpstop Rateup Front Left : " + bumpStopRateUp);
+
         //BumpStop Rate Down data : 
         System.out.println("Bumpstop Ratedown : " + bumpStopRateDn);
 
@@ -194,10 +190,29 @@ public class JSONFileReader {
         //Brake data:
         System.out.println("Braketorque : " + brakeTorque);
         System.out.println("Brake Bias : " + brakeBias);
-        
+
         return mechanicalBalanceClass;
     }
-    
+
+    public static Dampers saveDamperData(JSONObject saveDamper) {
+        JSONArray bumpSlow = (JSONArray) saveDamper.get("bumpSlow");
+        JSONArray bumpFast = (JSONArray) saveDamper.get("bumpFast");
+        JSONArray reboundSlow = (JSONArray) saveDamper.get("reboundSlow");
+        JSONArray reboundFast = (JSONArray) saveDamper.get("reboundFast");
+        
+        Dampers dampersClass = new Dampers (bumpSlow,bumpFast,reboundSlow,reboundFast);
+        
+        //Bumpslow data : 
+        
+        System.out.println("Bumpstop slow front left: " + dampersClass.bumpSlow.get(BUMP_SLOW_FRONT_LEFT));
+        System.out.println("Bumpstop slow front right: " + dampersClass.bumpSlow.get(BUMP_SLOW_FRONT_RIGHT));
+        System.out.println("Bumpstop slow rear left: " + dampersClass.bumpSlow.get(BUMP_FAST_REAR_LEFT));
+        System.out.println("Bumpstop slow rear right: " + dampersClass.bumpSlow.get(BUMP_FAST_REAR_RIGHT));
+        
+              
+        return null;
+    }
+
     //main
     public static void main(String[] args) throws FileNotFoundException, ParseException {
 
@@ -242,6 +257,10 @@ public class JSONFileReader {
             JSONObject mechanicalBalance = (JSONObject) advancedSetup.get("mechanicalBalance");
             MechanicalBalance mechanicalData = saveMechanicalBalanceData(mechanicalBalance);
             
+            System.out.println("Bumpstop slow data : \n");
+            JSONObject dampers = (JSONObject) advancedSetup.get("dampers");
+            Dampers dampersData = saveDamperData(dampers);
+
             //TrackBopType
             System.out.println("");
             long trackBopType = (long) mainJsonObject.get("trackBopType");
