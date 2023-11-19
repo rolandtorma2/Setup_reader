@@ -3,8 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/AeroBalance.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Dampers.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Tyres.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/MechanicalBalance.java</file>
             <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Strategy.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Alignment.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/DriveTrain.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/BasicSetup.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Electronics.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Utils.java</file>
             <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/JSONFileReader.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/AdvancedSetup.java</file>
+            <file>file:/C:/Users/rOlie/Documents/GitHub/Setup_reader/src/com/mycompany/jsonfilereader/Setup.java</file>
         </group>
     </open-files>
 </project-private>

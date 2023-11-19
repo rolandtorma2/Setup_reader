@@ -241,10 +241,22 @@ public class JSONFileReader {
         
         AeroBalance aeroBalanceClass = new AeroBalance(rideHeight,rodLength,brakeDuct,splitter,rearWing );
         
-         System.out.println("Ride height front left: " + aeroBalanceClass.rideHeight.get(RIDE_HEIGHT_FRONT_LEFT));
+        //Ride height
+        System.out.println("Ride height front left: " + aeroBalanceClass.rideHeight.get(RIDE_HEIGHT_FRONT_LEFT));
         System.out.println("Ride height front right: " + aeroBalanceClass.rideHeight.get(RIDE_HEIGHT_FRONT_RIGHT));
         System.out.println("Ride height rear left: " + aeroBalanceClass.rideHeight.get(RIDE_HEIGHT_REAR_LEFT));
         System.out.println("Ride height rear right: " + aeroBalanceClass.rideHeight.get(RIDE_HEIGHT_REAR_RIGHT) + "\n");
+        
+        //Rod length
+        System.out.println("Rod length front left: " + aeroBalanceClass.rodLength.get(ROD_LENGTH_FRONT_LEFT));
+        System.out.println("Rod length front right: " + aeroBalanceClass.rodLength.get(ROD_LENGTH_FRONT_RIGHT));
+        System.out.println("Rod length rear left: " + aeroBalanceClass.rodLength.get(ROD_LENGTH_REAR_LEFT));
+        System.out.println("Rod length rear right: " + aeroBalanceClass.rodLength.get(ROD_LENGTH_REAR_RIGHT) + "\n");
+        
+        //brake ducts
+        System.out.println("Brake duct front left: " + aeroBalanceClass.brakeDuct.get(BRAKE_DUCT_FRONT_LEFT));
+        System.out.println("Brake duct front right: " + aeroBalanceClass.brakeDuct.get(BRAKE_DUCT_FRONT_RIGHT) + "\n");
+        
         
         
         
