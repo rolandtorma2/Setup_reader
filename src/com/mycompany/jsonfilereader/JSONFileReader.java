@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -36,6 +37,8 @@ public class JSONFileReader {
             return jsonText;
         }
     }
+
+    //Basic setup methods : 
     
     
     //tyres method
@@ -50,6 +53,9 @@ public class JSONFileReader {
         //Outputting the information about tyres to the console
         System.out.println("Tyre Compound : " + tyreClass.tyreCompound);
         System.out.println("Tyre Pressures : ");
+        
+        //Tyres data : 
+        
         System.out.println("Front Left Tyre : " + tyreClass.tyrePressure.get(FRONT_LEFT) + " psi");
         System.out.println("Front Right Tyre : " + tyreClass.tyrePressure.get(FRONT_RIGHT) + " psi");
         System.out.println("Rear Left Tyre : " + tyreClass.tyrePressure.get(REAR_LEFT) + " psi");
@@ -57,7 +63,7 @@ public class JSONFileReader {
 
         return tyreClass;
     }
-    
+
     //Alignment method
     public static Alignment saveAlignmentData(JSONObject setupAlignment) {
         //getting the alignment data
@@ -72,38 +78,40 @@ public class JSONFileReader {
         //making alignment class
         Alignment alignmentClass = new Alignment(camber, toe, staticCamber, toeOutLinear, casterLF, casterRF, steerRatio);
 
-        //CAMBER
+        //CAMBER data : 
         System.out.println("Front left camber : " + alignmentClass.camber.get(CAMBER_FRONT_LEFT) + "%");
         System.out.println("Front right camber : " + alignmentClass.camber.get(CAMBER_FRONT_RIGHT) + "%");
         System.out.println("Rear left camber : " + alignmentClass.camber.get(CAMBER_REAR_LEFT) + "%");
         System.out.println("Rear right camber : " + alignmentClass.camber.get(CAMBER_REAR_RIGHT) + "%\n");
 
-        //TOE
+        //TOE data : 
         System.out.println("Front left toe : " + alignmentClass.toe.get(TOE_FRONT_LEFT));
         System.out.println("Front right toe : " + alignmentClass.toe.get(TOE_FRONT_RIGHT));
         System.out.println("Rear left toe : " + alignmentClass.toe.get(TOE_REAR_LEFT));
         System.out.println("Rear right toe : " + alignmentClass.toe.get(TOE_REAR_RIGHT) + "\n");
 
-        //STATIC CAMBER
+        //STATIC CAMBER data : 
         System.out.println("Front left static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_FRONT_LEFT) + " degrees");
         System.out.println("Front right static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_FRONT_RIGHT) + " degrees");
         System.out.println("Rear left static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_REAR_LEFT) + " degrees");
         System.out.println("Rear right static camber : " + alignmentClass.staticCamber.get(STATIC_CAMBER_REAR_RIGHT) + " degrees\n");
 
-        //TOE OUT LINEAR
+        //TOE OUT LINEAR data : 
         System.out.println("Front left toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_FRONT_LEFT));
         System.out.println("Front right toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_FRONT_RIGHT));
         System.out.println("Rear left toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_REAR_LEFT));
         System.out.println("Rear right toe out linear : " + alignmentClass.toeOutLinear.get(TOE_OUT_LINEAR_REAR_RIGHT) + "\n");
 
-        //CASTER LEFT FRONT
+        //CASTER FRONT data : 
         System.out.println("Left Front Caster : " + alignmentClass.casterLF);
         System.out.println("Right Front Caster : " + alignmentClass.casterRF);
+        
+        //Steering ratio data : 
         System.out.println("Steering ratio : " + alignmentClass.steerRatio + "\n");
 
         return alignmentClass;
     }
-    
+
     //Electronics method
     public static Electronics saveElectronicsData(JSONObject saveElectronics) {
         //getting the electronics data 
@@ -126,26 +134,69 @@ public class JSONFileReader {
         //FUEL MIX
         System.out.println("Fuel mix : " + fuelMix);
         //TELEMETRY
-        System.out.println("Telemetry laps: " + telemetryLaps);
-        
+        System.out.println("Telemetry laps: " + telemetryLaps + "\n");
+
         return electronicsClass;
     }
-    
+
     //strategy method
-    public static Strategy saveStrategyData(JSONObject saveStrategy){
-        
-            long fuel = (long) saveStrategy.get("fuel");
-            long nPitStops = (long) saveStrategy.get("nPitStops");
-            long tyreSet = (long) saveStrategy.get("tyreSet");
-            long frontBrakePadCompound = (long) saveStrategy.get("frontBrakePadCompound");
-            long rearBrakePadCompound = (long) saveStrategy.get("rearBrakePadCompound");
-            double fuelPerLap = (double) saveStrategy.get("fuelPerLap");
-                    
-            Strategy strategyClass = new Strategy(fuel,nPitStops,tyreSet,frontBrakePadCompound,rearBrakePadCompound,fuelPerLap);
-            return strategyClass;
+    public static Strategy saveStrategyData(JSONObject saveStrategy) {
+
+        long fuel = (long) saveStrategy.get("fuel");
+        long nPitStops = (long) saveStrategy.get("nPitStops");
+        long tyreSet = (long) saveStrategy.get("tyreSet");
+        long frontBrakePadCompound = (long) saveStrategy.get("frontBrakePadCompound");
+        long rearBrakePadCompound = (long) saveStrategy.get("rearBrakePadCompound");
+        double fuelPerLap = (double) saveStrategy.get("fuelPerLap");
+
+        Strategy strategyClass = new Strategy(fuel, nPitStops, tyreSet, frontBrakePadCompound, rearBrakePadCompound, fuelPerLap);
+
+        System.out.println("Default fuel : " + fuel);
+        System.out.println("Number of Pitstops : " + nPitStops);
+        System.out.println("Tyre set : " + tyreSet);
+        System.out.println("Front brake pad compound : " + frontBrakePadCompound);
+        System.out.println("Rear brake pad compound: " + rearBrakePadCompound + "\n");
+
+        System.out.println("Fuel per laps: " + fuelPerLap + "\n");
+
+        return strategyClass;
     }
+
+    //Advanced setup methods  : 
     
-    
+    //MechanicalBalance method
+    public static MechanicalBalance saveMechanicalBalanceData(JSONObject saveMechanicalBalance) {
+        long aRBFront = (long) saveMechanicalBalance.get("aRBFront");
+        long aRBRear = (long)  saveMechanicalBalance.get("aRBRear");
+        JSONArray wheelRate = (JSONArray) saveMechanicalBalance.get("wheelRate");
+        JSONArray bumpStopRateUp = (JSONArray) saveMechanicalBalance.get("bumpStopRateUp");
+        JSONArray bumpStopRateDn = (JSONArray) saveMechanicalBalance.get("bumpStopRateDn");
+        JSONArray bumpStopWindow = (JSONArray) saveMechanicalBalance.get("bumpStopWindow");
+        long brakeTorque = (long) saveMechanicalBalance.get("brakeTorque");
+        long brakeBias = (long) saveMechanicalBalance.get("brakeBias");
+        
+        MechanicalBalance mechanicalBalanceClass = new MechanicalBalance(wheelRate,bumpStopRateUp,bumpStopRateDn,bumpStopWindow,aRBFront,aRBRear,brakeTorque,brakeBias);
+        
+        System.out.println("ARB Front : " + aRBFront);
+        System.out.println("ARB Rear : " + aRBRear);
+        //Wheelrate data : 
+        System.out.println("Wheelrate Front left : " + wheelRate);
+
+        //Bumpstop Rate Up data : 
+        System.out.println("Bumpstop Rateup Front Left : " + bumpStopRateUp );
+        
+        //BumpStop Rate Down data : 
+        System.out.println("Bumpstop Ratedown : " + bumpStopRateDn);
+
+        //BumpStop Window data : 
+        System.out.println("Bumpstop window : " + bumpStopWindow);
+
+        //Brake data:
+        System.out.println("Braketorque : " + brakeTorque);
+        System.out.println("Brake Bias : " + brakeBias);
+        
+        return mechanicalBalanceClass;
+    }
     
     //main
     public static void main(String[] args) throws FileNotFoundException, ParseException {
@@ -159,29 +210,42 @@ public class JSONFileReader {
             Object object = parser.parse(strJsn);
             JSONObject mainJsonObject = (JSONObject) object;
 
+            //Basic setup datas : 
             //Car name : 
             String carName = (String) mainJsonObject.get("carName");
-            System.out.println("Car name : " + carName);
-            System.out.println();
+            System.out.println("Car name : " + carName + "\n");
 
             //Tyres
+            System.out.println("Tyre data : \n");
             JSONObject basicSetup = (JSONObject) mainJsonObject.get("basicSetup");
+            JSONObject advancedSetup = (JSONObject) mainJsonObject.get("advancedSetup");
             JSONObject tyres = (JSONObject) basicSetup.get("tyres");
             Tyres x = saveTyreData(tyres);
 
             //Alignment
+            System.out.println("Alignment data : \n");
             JSONObject alignment = (JSONObject) basicSetup.get("alignment");
             Alignment y = saveAlignmentData(alignment);
 
             //Electronics 
+            System.out.println("Electronics data : \n");
             JSONObject electronics = (JSONObject) basicSetup.get("electronics");
             Electronics electronicsData = saveElectronicsData(electronics);
-            
+
             //Strategy
+            System.out.println("Strategy data : \n");
             JSONObject strategy = (JSONObject) basicSetup.get("strategy");
             Strategy stragetyData = saveStrategyData(strategy);
+
+            //Advanced setup data :  
+            System.out.println("Mechanical Balance data : \n");
+            JSONObject mechanicalBalance = (JSONObject) advancedSetup.get("mechanicalBalance");
+            MechanicalBalance mechanicalData = saveMechanicalBalanceData(mechanicalBalance);
             
-           
+            //TrackBopType
+            System.out.println("");
+            long trackBopType = (long) mainJsonObject.get("trackBopType");
+            System.out.println("Track BOP Data : " + trackBopType);
 
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -9,6 +9,7 @@ public class Strategy {
     long rearBrakePadCompound;
     double fuelPerLap;
     
+
     public Strategy (long fuel,long nPitStops, long tyreSet,long frontBrakePadCompound,long rearBrakePadCompound, double fuelPerLap) {
         this.fuel = fuel;
         this.nPitStops = nPitStops;
@@ -17,4 +18,29 @@ public class Strategy {
         this.rearBrakePadCompound = rearBrakePadCompound;
         this.fuelPerLap = fuelPerLap;
     }
+    
+    public long getFuel() {
+        return fuel;
+    }
+
+    public long getnPitStops() {
+        return nPitStops;
+    }
+
+    public long getTyreSet() {
+        return tyreSet;
+    }
+
+    public long getFrontBrakePadCompound() {
+        return frontBrakePadCompound;
+    }
+
+    public long getRearBrakePadCompound() {
+        return rearBrakePadCompound;
+    }
+
+    public double getFuelPerLap() {
+        return fuelPerLap;
+    }
+    
 }

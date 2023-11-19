@@ -27,5 +27,4 @@ public class Utils {
     public final static int TOE_OUT_LINEAR_REAR_LEFT = 2;
     public final static int TOE_OUT_LINEAR_REAR_RIGHT = 3;
     
-    
 }
