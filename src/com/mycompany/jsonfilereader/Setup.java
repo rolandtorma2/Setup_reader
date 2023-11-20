@@ -14,8 +14,19 @@ public class Setup {
         return carName;
     }
 
+<<<<<<< Updated upstream
+=======
+    //get's the data from basicSetup
+>>>>>>> Stashed changes
     public BasicSetup getBasicSetup() {
         return basicSetup;
     }
 
+<<<<<<< Updated upstream
+=======
+    //get's the data from advancedSetup
+    public AdvancedSetup getAdvancedSetup() {
+        return advancedSetup;
+    }
+>>>>>>> Stashed changes
 }

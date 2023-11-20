@@ -5,6 +5,7 @@ import java.util.List;
 public class Tyres {
 
     int tyreCompound;
+<<<<<<< Updated upstream
     List tyrePressure;
 
     public Tyres(int tyreCompound, List tyrePressure) {
@@ -12,6 +13,17 @@ public class Tyres {
         this.tyrePressure = tyrePressure;
     }
 
+=======
+    List tyrePressure = new ArrayList();
+
+    public Tyres(int tyreCompound, JSONArray tyrePressure) {
+        this.tyreCompound = tyreCompound;
+        this.tyrePressure.addAll(tyrePressure);
+
+    }
+
+    //making getters
+>>>>>>> Stashed changes
     public int getTyreCompound() {
         return tyreCompound;
     }
