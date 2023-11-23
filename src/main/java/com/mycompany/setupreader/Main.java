@@ -14,24 +14,24 @@ import org.json.simple.parser.ParseException;
 //making a class for the file reader
 public class Main {
 
-    //creating jsonparser
+   
 
-        public static String getJson(String filename) throws FileNotFoundException { //making the file reader
-            String jsonText = "";
+    public static String getJson(String filename) throws FileNotFoundException { //making the file reader
+        String jsonText = "";
 
-            try {
-                BufferedReader buffereader
-                        = new BufferedReader(new FileReader(filename));
-                String line;
+        try {
+            BufferedReader buffereader
+                    = new BufferedReader(new FileReader(filename));
+            String line;
 
-                while ((line = buffereader.readLine()) != null) {
-                    jsonText += line + "\n";
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+            while ((line = buffereader.readLine()) != null) {
+                jsonText += line + "\n";
             }
-            return jsonText;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return jsonText;
+    }
 
     public static Tyres saveTyreData(JSONObject setupTyres) {
         long tyreCompound = (long) setupTyres.get("tyreCompound");
