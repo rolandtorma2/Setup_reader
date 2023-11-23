@@ -107,7 +107,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException, ParseException {
 
         //reading the file
-        String strJsn = getJson("C:\\Users\\rOlie\\Documents\\Assetto Corsa Competizione\\Setups\\ferrari_296_gt3\\nurburgring\\GO2 296 GT3 NUR S Q01.json");
+        String strJsn = getJson("./src/main/resources/testresource.json");
 
         //making the parser
         try {
