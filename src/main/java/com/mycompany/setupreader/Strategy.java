@@ -1,5 +1,5 @@
 
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 public class Strategy {
     long fuel;

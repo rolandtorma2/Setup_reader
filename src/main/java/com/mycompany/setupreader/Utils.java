@@ -1,12 +1,12 @@
 
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 public class Utils {
     public final static int FRONT_LEFT = 0;
     public final static int FRONT_RIGHT = 1;
     public final static int REAR_LEFT = 2;
     public final static int REAR_RIGHT = 3;
-
+    
     public final static int CAMBER_FRONT_LEFT = 0;
     public final static int CAMBER_FRONT_RIGHT = 1;
     public final static int CAMBER_REAR_LEFT = 2;

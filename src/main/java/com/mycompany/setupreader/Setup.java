@@ -1,4 +1,4 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 
 //creating the setup class
