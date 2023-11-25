@@ -7,8 +7,8 @@ public class Electronics {
     long eCUMap;
     long fuelMix;
     long telemetryLaps;
-    
-    public Electronics(long tC1,long tC2, long abs,long eCUMap, long fuelMix,long telemetryLaps) {
+
+    public Electronics(long tC1, long tC2, long abs, long eCUMap, long fuelMix, long telemetryLaps) {
         this.tC1 = tC1;
         this.tC2 = tC2;
         this.abs = abs;
@@ -40,6 +40,5 @@ public class Electronics {
     public long getTelemetryLaps() {
         return telemetryLaps;
     }
-    
-   
+
 }

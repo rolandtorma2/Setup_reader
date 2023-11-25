@@ -8,8 +8,9 @@ public class Strategy {
     long frontBrakePadCompound;
     long rearBrakePadCompound;
     double fuelPerLap;
-    
-    public Strategy (long fuel,long nPitStops, long tyreSet,long frontBrakePadCompound,long rearBrakePadCompound, double fuelPerLap) {
+
+    public Strategy(long fuel, long nPitStops, long tyreSet, long frontBrakePadCompound, long rearBrakePadCompound,
+            double fuelPerLap) {
         this.fuel = fuel;
         this.nPitStops = nPitStops;
         this.tyreSet = tyreSet;
