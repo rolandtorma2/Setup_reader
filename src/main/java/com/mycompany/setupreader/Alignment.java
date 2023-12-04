@@ -3,6 +3,10 @@ package com.mycompany.setupreader;
 import java.util.ArrayList;
 import java.util.List;
 
+    /**
+     * The Alignment class represents the alignment configuration for a car setup,
+     * including parameters such as camber, toe, static camber, toe out linear, caster, and steer ratio.
+     */
 public class Alignment {
 
     List camber = new ArrayList();
@@ -12,6 +16,18 @@ public class Alignment {
     long casterLF;
     long casterRF;
     long steerRatio;
+
+    /**
+     * Constructs a new Alignment object with the specified parameters.
+     *
+     * @param camber       List of camber values for different wheels.
+     * @param toe          List of toe values for different wheels.
+     * @param staticCamber List of static camber values for different wheels.
+     * @param toeOutLinear List of toe out linear values for different wheels.
+     * @param casterLF     The caster value for the left front wheel.
+     * @param casterRF     The caster value for the right front wheel.
+     * @param steerRatio   The steering ratio of the car.
+     */
 
     public Alignment(List camber, List toe, List staticCamber, List toeOutLinear, long casterLF, long casterRF,
             long steerRatio) {

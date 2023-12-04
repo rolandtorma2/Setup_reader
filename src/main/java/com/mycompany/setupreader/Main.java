@@ -9,8 +9,19 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-//making a class for the file reader
+/**
+ * The Main class provides methods for reading and processing JSON setup files
+ * containing information about car setup including tyres, alignment, electronics, and strategy.
+ */
 public class Main {
+
+    /**
+     * Reads the content of a JSON file and returns it as a String.
+     *
+     * @param filename The path to the JSON file.
+     * @return The content of the JSON file as a String.
+     * @throws FileNotFoundException If the specified file is not found.
+     */
 
     public static String getJson(String filename) throws FileNotFoundException { // making the file reader
         String jsonText = "";
@@ -27,6 +38,13 @@ public class Main {
         }
         return jsonText;
     }
+
+    /**
+     * Saves the tyre setup data from a JSON object and prints information about it.
+     *
+     * @param setupTyres The JSON object containing tyre setup data.
+     * @return An instance of the Tyres class representing the tyre setup.
+     */
 
     public static Tyres saveTyreData(JSONObject setupTyres) {
         long tyreCompound = (long) setupTyres.get("tyreCompound");
@@ -46,6 +64,13 @@ public class Main {
 
         return tyreClass;
     }
+
+    /**
+     * Saves the alignment setup data from a JSON object and prints information about it.
+     *
+     * @param setupAlignment The JSON object containing alignment setup data.
+     * @return An instance of the Alignment class representing the alignment setup.
+     */
 
     public static Alignment saveAlignmentData(JSONObject setupAlignment) {
         // getting the alignment data
@@ -101,60 +126,64 @@ public class Main {
         return alignmentClass;
     }
 
-    // main
+    /**
+     * The main method of the program that reads a JSON setup file, processes the data,
+     * and prints information about the car setup including tyres, alignment, electronics, and strategy.
+     *
+     */
     public static void main(String[] args) throws FileNotFoundException, ParseException {
 
-        // reading the file
+        // Read the content of the JSON file into a String.
         String strJsn = getJson("./src/main/resources/testresource.json");
 
-        // making the parser
+         // Parse the JSON String using the JSONParser.
         try {
             JSONParser parser = new JSONParser();
             Object object = parser.parse(strJsn);
             JSONObject mainJsonObject = (JSONObject) object;
 
-            // Car name :
+            // Extract and print the car name.
             String carName = (String) mainJsonObject.get("carName");
             System.out.println("Car name : " + carName);
             System.out.println();
 
-            // Tyres
+            // Extract and process Tyres setup data.
             JSONObject basicSetup = (JSONObject) mainJsonObject.get("basicSetup");
             JSONObject tyres = (JSONObject) basicSetup.get("tyres");
             Tyres x = saveTyreData(tyres);
 
-            // Alignment
+            // Extract and process Alignment setup data.
             JSONObject alignment = (JSONObject) basicSetup.get("alignment");
             Alignment y = saveAlignmentData(alignment);
 
-            // Electronics
+            // Extract and process Electronics setup data.
             JSONObject electronics = (JSONObject) basicSetup.get("electronics");
 
-            // getting the electronics data
+            // Extract and initialize electronic class with the electronics data.
             long tC1 = (long) electronics.get("tC1");
             long tC2 = (long) electronics.get("tC2");
             long abs = (long) electronics.get("abs");
             long eCUMap = (long) electronics.get("eCUMap");
             long fuelMix = (long) electronics.get("fuelMix");
             long telemetryLaps = (long) electronics.get("telemetryLaps");
-            // making electronic class
+            
             Electronics electronicsClass = new Electronics(tC1, tC2, abs, eCUMap, fuelMix, telemetryLaps);
 
-            // TRACTION CONTROL
+            // Print information about Traction Control, ABS, ECU Mapping, Fuel Mix, and Telemetry.
             System.out.println("Traction Control 1 power : " + tC1);
             System.out.println("Traction Control 2 power : " + tC2);
-            // ABS
+
             System.out.println("Abs power : " + abs);
-            // ECU
+
             System.out.println("ECU Mapping level : " + eCUMap);
-            // FUEL MIX
+
             System.out.println("Fuel mix : " + fuelMix);
-            // TELEMETRY
+
             System.out.println("Telemetry laps: " + telemetryLaps);
 
-            // Strategy
+            // Extract and process Strategy setup data.
             JSONObject strategy = (JSONObject) basicSetup.get("strategy");
-
+            // Extract various strategy parameters.
             long fuel = (long) strategy.get("fuel");
             long nPitStops = (long) strategy.get("nPitStops");
             long tyreSet = (long) strategy.get("tyreSet");
@@ -163,6 +192,7 @@ public class Main {
             double fuelPerLap = (double) strategy.get("fuelPerLap");
 
         } catch (Exception ex) {
+            // Print the stack trace if an exception occurs during processing.
             ex.printStackTrace();
         }
     }
