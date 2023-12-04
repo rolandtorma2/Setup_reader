@@ -1,30 +1,34 @@
 package com.mycompany.jsonfilereader;
 
-<<<<<<< Updated upstream
-import java.util.List;
-=======
 import java.util.ArrayList;
 import java.util.List;
 import org.json.simple.JSONArray;
->>>>>>> Stashed changes
+
+    /**
+     * The Tyres class represents the configuration for a car's tires,
+     * including the compound type and pressure settings for each tire.
+     */
 
 public class Tyres {
 
     int tyreCompound;
-<<<<<<< Updated upstream
-    List tyrePressure;
-=======
     List tyrePressure = new ArrayList();
 
->>>>>>> Stashed changes
+
 
     public Tyres(int tyreCompound, List tyrePressure) {
         this.tyreCompound = tyreCompound;
         this.tyrePressure = tyrePressure;
     }
 
-<<<<<<< Updated upstream
-=======
+
+    /**
+     * Constructs a new Tyres object with the specified parameters.
+     *
+     * @param tyreCompound  The type of tire compound selected for the car.
+     * @param tyrePressure  List of tire pressure values for different tires.
+     */
+
     public Tyres(int tyreCompound, JSONArray tyrePressure) {
         this.tyreCompound = tyreCompound;
         this.tyrePressure.addAll(tyrePressure);
@@ -32,7 +36,6 @@ public class Tyres {
     }
 
     //making getters
->>>>>>> Stashed changes
     public int getTyreCompound() {
         return tyreCompound;
     }
