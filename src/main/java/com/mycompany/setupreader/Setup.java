@@ -1,7 +1,9 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
+//creating the setup class
 public class Setup {
 
+    // declaring carName and basicSetup
     String carName;
     BasicSetup basicSetup;
 
@@ -10,6 +12,7 @@ public class Setup {
         this.basicSetup = basicSetup;
     }
 
+    // making getters
     public String getCarName() {
         return carName;
     }
