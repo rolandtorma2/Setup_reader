@@ -1,19 +1,13 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
+import java.util.ArrayList;
 import java.util.List;
+import org.json.simple.JSONArray;
 
+//creating the tyres class
 public class Tyres {
 
     int tyreCompound;
-<<<<<<< Updated upstream
-    List tyrePressure;
-
-    public Tyres(int tyreCompound, List tyrePressure) {
-        this.tyreCompound = tyreCompound;
-        this.tyrePressure = tyrePressure;
-    }
-
-=======
     List tyrePressure = new ArrayList();
 
     public Tyres(int tyreCompound, JSONArray tyrePressure) {
@@ -22,8 +16,7 @@ public class Tyres {
 
     }
 
-    //making getters
->>>>>>> Stashed changes
+    // making getters
     public int getTyreCompound() {
         return tyreCompound;
     }

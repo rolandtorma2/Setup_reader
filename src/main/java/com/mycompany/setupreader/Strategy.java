@@ -1,4 +1,4 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,17 +14,16 @@ public class Strategy {
     long rearBrakePadCompound;
     double fuelPerLap;
 
-    public Strategy(long fuel, long nPitStops, long tyreSet, long frontBrakePadCompound, long rearBrakePadCompound, double fuelPerLap, JSONObject pitStrategy) {
+    public Strategy(long fuel, long nPitStops, long tyreSet, long frontBrakePadCompound, long rearBrakePadCompound,
+            double fuelPerLap, JSONObject pitStrategy) {
         this.fuel = fuel;
         this.nPitStops = nPitStops;
         this.tyreSet = tyreSet;
         this.frontBrakePadCompound = frontBrakePadCompound;
         this.rearBrakePadCompound = rearBrakePadCompound;
         this.fuelPerLap = fuelPerLap;
-        this.pitStrategy  = pitStrategy;
+        this.pitStrategy = pitStrategy;
     }
-     
-    
 
     public long getFuel() {
         return fuel;

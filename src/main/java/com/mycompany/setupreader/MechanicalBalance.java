@@ -1,4 +1,4 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,8 @@ public class MechanicalBalance {
     long brakeTorque;
     long brakeBias;
 
-    public MechanicalBalance(List wheelrate, List bumpStopRateUp, List bumpStopRateDn, List bumpStopWindow, long aRBFront, long aRBRear, long brakeTorque, long brakeBias) {
+    public MechanicalBalance(List wheelrate, List bumpStopRateUp, List bumpStopRateDn, List bumpStopWindow,
+            long aRBFront, long aRBRear, long brakeTorque, long brakeBias) {
 
         this.aRBFront = aRBFront;
         this.aRBRear = aRBRear;

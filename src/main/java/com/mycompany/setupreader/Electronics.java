@@ -1,7 +1,6 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 public class Electronics {
-
     long tC1;
     long tC2;
     long abs;

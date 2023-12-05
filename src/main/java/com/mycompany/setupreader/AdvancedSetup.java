@@ -1,7 +1,6 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 public class AdvancedSetup {
-
     MechanicalBalance mechanicalBalance;
     Dampers dampers;
     AeroBalance aeroBalance;
