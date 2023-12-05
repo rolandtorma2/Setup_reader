@@ -1,5 +1,4 @@
-
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 public class Strategy {
     long fuel;
@@ -8,9 +7,9 @@ public class Strategy {
     long frontBrakePadCompound;
     long rearBrakePadCompound;
     double fuelPerLap;
-    
 
-    public Strategy (long fuel,long nPitStops, long tyreSet,long frontBrakePadCompound,long rearBrakePadCompound, double fuelPerLap) {
+    public Strategy(long fuel, long nPitStops, long tyreSet, long frontBrakePadCompound, long rearBrakePadCompound,
+            double fuelPerLap) {
         this.fuel = fuel;
         this.nPitStops = nPitStops;
         this.tyreSet = tyreSet;
@@ -18,7 +17,7 @@ public class Strategy {
         this.rearBrakePadCompound = rearBrakePadCompound;
         this.fuelPerLap = fuelPerLap;
     }
-    
+
     public long getFuel() {
         return fuel;
     }
@@ -42,5 +41,5 @@ public class Strategy {
     public double getFuelPerLap() {
         return fuelPerLap;
     }
-    
+
 }
