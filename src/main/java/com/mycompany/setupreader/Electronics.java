@@ -1,4 +1,4 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
     /**
      * The Electronics class represents the electronic configuration for a car setup,
@@ -6,7 +6,6 @@ package com.mycompany.jsonfilereader;
      */
 
 public class Electronics {
-
     long tC1;
     long tC2;
     long abs;
