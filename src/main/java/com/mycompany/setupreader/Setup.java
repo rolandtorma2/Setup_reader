@@ -1,9 +1,7 @@
 package com.mycompany.setupreader;
 
-//creating the setup class
 public class Setup {
 
-    // declaring carName and basicSetup
     String carName;
     BasicSetup basicSetup;
     AdvancedSetup advancedSetup;
@@ -12,10 +10,6 @@ public class Setup {
         this.carName = carName;
         this.basicSetup = basicSetup;
         this.advancedSetup = advancedSetup;
-
-    public Setup(String carName, BasicSetup basicSetup) {
-        this.carName = carName;
-        this.basicSetup = basicSetup;
     }
 
     public String getCarName() {
@@ -29,5 +23,4 @@ public class Setup {
     public AdvancedSetup getAdvancedSetup() {
         return advancedSetup;
     }
-
 }
