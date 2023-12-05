@@ -1,5 +1,9 @@
 package com.mycompany.setupreader;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.json.simple.JSONObject;
+
 /**
  * The Strategy class represents the strategic configuration for a car setup,
  * including parameters such as fuel, pit stops, tyre set, brake pad compounds,
