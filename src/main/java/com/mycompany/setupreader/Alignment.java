@@ -41,7 +41,6 @@ public class Alignment {
         this.steerRatio = steerRatio;
     }
 
-    //making getters
     public List getCamber() {
         return camber;
     }

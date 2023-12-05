@@ -12,14 +12,16 @@ public class Setup {
         this.carName = carName;
         this.basicSetup = basicSetup;
         this.advancedSetup = advancedSetup;
+
+    public Setup(String carName, BasicSetup basicSetup) {
+        this.carName = carName;
+        this.basicSetup = basicSetup;
     }
 
-    // making getters
     public String getCarName() {
         return carName;
     }
 
-    //get's the data from basicSetup
     public BasicSetup getBasicSetup() {
         return basicSetup;
     }
