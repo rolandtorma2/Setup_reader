@@ -7,14 +7,17 @@ public class AeroBalance {
 
     List rideHeight = new ArrayList();
     List rodLength = new ArrayList();
-    List reboundSlow = new ArrayList();
-    List reboundFast = new ArrayList();
+    List brakeDuct = new ArrayList();
+    long splitter;
+    long rearWing;
     
-    public AeroBalance(List rideHeight,List rodLength,List reboundSlow,List reboundFast) {
+    public AeroBalance(List rideHeight,List rodLength,List brakeDuct,long splitter,long rearWing) {
         this.rideHeight = rideHeight;
         this.rodLength = rodLength;
-        this.reboundSlow = reboundSlow;
-        this.reboundFast = reboundFast;
+        this.brakeDuct = brakeDuct;
+        this.splitter = splitter;
+        this.rearWing = rearWing;
+
     }
 
     public List getRideHeight() {
@@ -25,13 +28,18 @@ public class AeroBalance {
         return rodLength;
     }
 
-    public List getReboundSlow() {
-        return reboundSlow;
+    public List getBrakeDuct() {
+        return brakeDuct;
     }
 
-    public List getReboundFast() {
-        return reboundFast;
+    public long getSplitter() {
+        return splitter;
     }
+
+    public long getRearWing() {
+        return rearWing;
+    }
+    
     
     
 }
