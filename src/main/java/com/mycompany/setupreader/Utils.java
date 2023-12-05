@@ -37,11 +37,6 @@ public class Utils {
     public final static int BUMP_FAST_REAR_LEFT = 2;
     public final static int BUMP_FAST_REAR_RIGHT = 3;
 
-    public final static int REBOUND_SLOW_FRONT_LEFT = 0;
-    public final static int REBOUND_SLOW_FRONT_RIGHT = 1;
-    public final static int REBOUND_SLOW_REAR_LEFT = 2;
-    public final static int REBOUND_SLOW_REAR_RIGHT = 3;
-
     public final static int REBOUND_FAST_FRONT_LEFT = 0;
     public final static int REBOUND_FAST_FRONT_RIGHT = 1;
     public final static int REBOUND_FAST_REAR_LEFT = 2;
@@ -52,11 +47,26 @@ public class Utils {
     public final static int RIDE_HEIGHT_REAR_LEFT = 2;
     public final static int RIDE_HEIGHT_REAR_RIGHT = 3;
 
-    public final static int ROD_LENGTH_FRONT_LEFT = 0;
-    public final static int ROD_LENGTH_FRONT_RIGHT = 1;
-    public final static int ROD_LENGTH_REAR_LEFT = 2;
-    public final static int ROD_LENGTH_REAR_RIGHT = 3;
-
     public final static int BRAKE_DUCT_FRONT_LEFT = 0;
     public final static int BRAKE_DUCT_FRONT_RIGHT = 1;
+
+    public final static int WHEELRATE_FRONT_LEFT = 0;
+    public final static int WHEELRATE_FRONT_RIGHT = 1;
+    public final static int WHEELRATE_REAR_LEFT = 2;
+    public final static int WHEELRATE_REAR_RIGHT = 3;
+
+    public final static int BUMP_RATE_UP_FRONT_LEFT = 0;
+    public final static int BUMP_RATE_UP_FRONT_RIGHT = 1;
+    public final static int BUMP_RATE_UP_REAR_LEFT = 2;
+    public final static int BUMP_RATE_UP_REAR_RIGHT = 3;
+
+    public final static int BUMP_RATE_DOWN_FRONT_LEFT = 0;
+    public final static int BUMP_RATE_DOWN_FRONT_RIGHT = 1;
+    public final static int BUMP_RATE_DOWN_REAR_LEFT = 2;
+    public final static int BUMP_RATE_DOWN_REAR_RIGHT = 3;
+
+    public final static int BUMP_WINDOW_FRONT_LEFT = 0;
+    public final static int BUMP_WINDOW_FRONT_RIGHT = 1;
+    public final static int BUMP_WINDOW_REAR_LEFT = 2;
+    public final static int BUMP_WINDOW_REAR_RIGHT = 3;
 }

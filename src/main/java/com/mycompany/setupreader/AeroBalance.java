@@ -10,8 +10,8 @@ public class AeroBalance {
     List brakeDuct = new ArrayList();
     long splitter;
     long rearWing;
-    
-    public AeroBalance(List rideHeight,List rodLength,List brakeDuct,long splitter,long rearWing) {
+
+    public AeroBalance(List rideHeight, List rodLength, List brakeDuct, long splitter, long rearWing) {
         this.rideHeight = rideHeight;
         this.rodLength = rodLength;
         this.brakeDuct = brakeDuct;
@@ -39,7 +39,5 @@ public class AeroBalance {
     public long getRearWing() {
         return rearWing;
     }
-    
-    
-    
+
 }

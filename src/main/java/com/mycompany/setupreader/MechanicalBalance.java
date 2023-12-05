@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MechanicalBalance {
-    
+
     List wheelRate = new ArrayList();
     List bumpStopRateUp = new ArrayList();
     List bumpStopRateDn = new ArrayList();
@@ -14,9 +14,9 @@ public class MechanicalBalance {
     long brakeTorque;
     long brakeBias;
 
+    public MechanicalBalance(List wheelrate, List bumpStopRateUp, List bumpStopRateDn, List bumpStopWindow,
+            long aRBFront, long aRBRear, long brakeTorque, long brakeBias) {
 
-    public MechanicalBalance(List wheelrate,List bumpStopRateUp,List bumpStopRateDn,List bumpStopWindow,long aRBFront,long aRBRear,long brakeTorque,long brakeBias) {
-        
         this.aRBFront = aRBFront;
         this.aRBRear = aRBRear;
         this.brakeTorque = brakeTorque;
@@ -26,7 +26,7 @@ public class MechanicalBalance {
         this.bumpStopRateDn = bumpStopRateDn;
         this.bumpStopWindow = bumpStopWindow;
     }
-    
+
     public List getWheelRate() {
         return wheelRate;
     }
@@ -42,7 +42,7 @@ public class MechanicalBalance {
     public List getBumpStopWindow() {
         return bumpStopWindow;
     }
-    
+
     public long getaRBFront() {
         return aRBFront;
     }
@@ -58,7 +58,5 @@ public class MechanicalBalance {
     public long getBrakeBias() {
         return brakeBias;
     }
-
-    
 
 }

@@ -5,7 +5,7 @@ public class AdvancedSetup {
     Dampers dampers;
     AeroBalance aeroBalance;
     DriveTrain drivetrain;
-    
+
     public AdvancedSetup(MechanicalBalance mechanicalBalance) {
         this.mechanicalBalance = mechanicalBalance;
     }
@@ -13,7 +13,7 @@ public class AdvancedSetup {
     public MechanicalBalance getMechanicalBalance() {
         return mechanicalBalance;
     }
-    
+
     public AdvancedSetup(Dampers dampers) {
         this.dampers = dampers;
     }
@@ -21,7 +21,7 @@ public class AdvancedSetup {
     public Dampers getDampers() {
         return dampers;
     }
-    
+
     public AdvancedSetup(AeroBalance aeroBalance) {
         this.aeroBalance = aeroBalance;
     }
@@ -29,6 +29,7 @@ public class AdvancedSetup {
     public AeroBalance getAeroBalance() {
         return aeroBalance;
     }
+
     public AdvancedSetup(DriveTrain drivetrain) {
         this.drivetrain = drivetrain;
     }
@@ -36,5 +37,5 @@ public class AdvancedSetup {
     public DriveTrain getDrivetrain() {
         return drivetrain;
     }
-    
+
 }
