@@ -1,4 +1,4 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 public class BasicSetup {
 
@@ -20,8 +20,5 @@ public class BasicSetup {
     public Alignment getAlignment() {
         return alignment;
     }
-    
-    
-    
 
 }
