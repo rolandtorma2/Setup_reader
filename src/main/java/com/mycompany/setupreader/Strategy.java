@@ -1,4 +1,3 @@
-
 package com.mycompany.setupreader;
 
 public class Strategy {
@@ -18,4 +17,29 @@ public class Strategy {
         this.rearBrakePadCompound = rearBrakePadCompound;
         this.fuelPerLap = fuelPerLap;
     }
+
+    public long getFuel() {
+        return fuel;
+    }
+
+    public long getnPitStops() {
+        return nPitStops;
+    }
+
+    public long getTyreSet() {
+        return tyreSet;
+    }
+
+    public long getFrontBrakePadCompound() {
+        return frontBrakePadCompound;
+    }
+
+    public long getRearBrakePadCompound() {
+        return rearBrakePadCompound;
+    }
+
+    public double getFuelPerLap() {
+        return fuelPerLap;
+    }
+
 }
