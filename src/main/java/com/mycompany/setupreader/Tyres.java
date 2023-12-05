@@ -1,4 +1,4 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,18 +9,18 @@ public class Tyres {
 
     int tyreCompound;
     List tyrePressure = new ArrayList();
-    
-    
+
     public Tyres(int tyreCompound, JSONArray tyrePressure) {
         this.tyreCompound = tyreCompound;
         this.tyrePressure.addAll(tyrePressure);
-        
+
     }
-    //making getters
+
+    // making getters
     public int getTyreCompound() {
         return tyreCompound;
     }
-    
+
     public List getTyrePressure() {
         return tyrePressure;
     }

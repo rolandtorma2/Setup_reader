@@ -1,4 +1,4 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,8 @@ public class Alignment {
     long casterRF;
     long steerRatio;
 
-    public Alignment(List camber, List toe, List staticCamber, List toeOutLinear, long casterLF, long casterRF, long steerRatio) {
+    public Alignment(List camber, List toe, List staticCamber, List toeOutLinear, long casterLF, long casterRF,
+            long steerRatio) {
 
         this.camber = camber;
         this.toe = toe;
@@ -24,7 +25,7 @@ public class Alignment {
         this.steerRatio = steerRatio;
     }
 
-    //making getters
+    // making getters
     public List getCamber() {
         return camber;
     }

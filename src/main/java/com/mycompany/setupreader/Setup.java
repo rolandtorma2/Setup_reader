@@ -1,9 +1,7 @@
-package com.mycompany.jsonfilereader;
+package com.mycompany.setupreader;
 
-//creating the setup class
 public class Setup {
 
-    //declaring carName and basicSetup and the advancedSetup
     String carName;
     BasicSetup basicSetup;
     AdvancedSetup advancedSetup;
@@ -14,15 +12,14 @@ public class Setup {
         this.advancedSetup = advancedSetup;
     }
 
-    //get's car name 
     public String getCarName() {
         return carName;
     }
-    //get's the data from basicSetup
+
     public BasicSetup getBasicSetup() {
         return basicSetup;
     }
-    //get's the data from advancedSetup
+
     public AdvancedSetup getAdvancedSetup() {
         return advancedSetup;
     }
