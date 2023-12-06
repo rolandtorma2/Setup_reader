@@ -6,6 +6,9 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 /**
  * The Strategy class represents the strategic configuration for a vehicle
  * during a race,
@@ -44,6 +47,7 @@ public class Strategy {
         this.rearBrakePadCompound = rearBrakePadCompound;
         this.fuelPerLap = fuelPerLap;
         this.pitStrategy = pitStrategy;
+
     }
 
     /**

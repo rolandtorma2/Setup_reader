@@ -21,6 +21,9 @@ public class AdvancedSetup {
 
     public AdvancedSetup(MechanicalBalance mechanicalBalance) {
         this.mechanicalBalance = mechanicalBalance;
+        this.dampers = dampers;
+        this.aeroBalance = aeroBalance;
+        this.drivetrain = driveTrain;
     }
 
     /**

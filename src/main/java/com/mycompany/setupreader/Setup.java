@@ -10,6 +10,7 @@ public class Setup {
     String carName;
     BasicSetup basicSetup;
     AdvancedSetup advancedSetup;
+    long trackBopType;
 
     /**
      * Constructs a Setup instance with specified setup configuration parameters.
@@ -18,10 +19,11 @@ public class Setup {
      * @param basicSetup The basic setup configuration.
      * @param advancedSetup The advanced setup configuration.
      */
-    public Setup(String carName, BasicSetup basicSetup, AdvancedSetup advancedSetup) {
+    public Setup(String carName, BasicSetup basicSetup, AdvancedSetup advancedSetup, long trackBopType) {
         this.carName = carName;
         this.basicSetup = basicSetup;
         this.advancedSetup = advancedSetup;
+        this.trackBopType = trackBopType;
     }
 
     /**

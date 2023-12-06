@@ -18,6 +18,9 @@ public class BasicSetup {
      */
     public BasicSetup(Tyres tyres) {
         this.tyres = tyres;
+        this.alignment = alignment;
+        this.electronics = electronics;
+        this.strategy = strategy;
     }
 
     /**
