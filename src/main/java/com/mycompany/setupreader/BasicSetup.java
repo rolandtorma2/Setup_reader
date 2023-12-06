@@ -16,7 +16,7 @@ public class BasicSetup {
      *
      * @param tyres The tyre configuration.
      */
-    public BasicSetup(Tyres tyres) {
+    public BasicSetup(Tyres tyres, Alignment alignment, Electronics electronics, Strategy strategy) {
         this.tyres = tyres;
         this.alignment = alignment;
         this.electronics = electronics;

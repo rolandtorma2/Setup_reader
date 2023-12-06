@@ -19,7 +19,7 @@ public class AdvancedSetup {
      * @param mechanicalBalance The MechanicalBalance configuration.
      */
 
-    public AdvancedSetup(MechanicalBalance mechanicalBalance) {
+     public AdvancedSetup(MechanicalBalance mechanicalBalance, Dampers dampers, AeroBalance aeroBalance, DriveTrain driveTrain) {
         this.mechanicalBalance = mechanicalBalance;
         this.dampers = dampers;
         this.aeroBalance = aeroBalance;
