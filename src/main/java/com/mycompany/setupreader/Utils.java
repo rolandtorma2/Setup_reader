@@ -1,7 +1,11 @@
 package com.mycompany.setupreader;
 
-public class Utils {
+/**
+ * The Utils class provides utility constants for indexing and representing
+ * various components and positions in a vehicle setup.
+ */
 
+public class Utils {
     public final static int FRONT_LEFT = 0;
     public final static int FRONT_RIGHT = 1;
     public final static int REAR_LEFT = 2;
