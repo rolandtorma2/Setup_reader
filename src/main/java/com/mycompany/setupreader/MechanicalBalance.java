@@ -49,7 +49,7 @@ public class MechanicalBalance {
         System.out.println("Brake Bias: " + this.brakeBias + "\n");
     }
 
-    public MechanicalBalance(List wheelrate, List bumpStopRateUp, List bumpStopRateDn, List bumpStopWindow,
+    public MechanicalBalance(List wheelRate, List bumpStopRateUp, List bumpStopRateDn, List bumpStopWindow,
             long aRBFront, long aRBRear, long brakeTorque, long brakeBias) {
 
         this.aRBFront = aRBFront;
