@@ -2,6 +2,8 @@ package com.mycompany.setupreader;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Strategy {
@@ -22,20 +24,30 @@ public class Strategy {
         System.out.println("Front brake pad compound: " + this.frontBrakePadCompound);
         System.out.println("Rear brake pad compound: " + this.rearBrakePadCompound + "\n");
         System.out.println("Fuel per laps: " + this.fuelPerLap + "\n");
-        
+
         // TODO: Finish it later
 
-        /*System.out.println("Pit strategy data: ");
-
-        System.out.println("Pit strategy: fuel to add: " + pitStrategy.get("fuelToAdd"));
-        System.out.println("Pit strategy: Tyre set: " + pitStrategy.get("tyreSet"));
-        System.out.println("Pit strategy: Tyres: Tyre compound: " + tyres.get("tyreCompound"));
-        System.out.println("Pit strategy: Tyres: Tyre pressures: Front Left: " + tyrePressures.get(FRONT_LEFT));
-        System.out.println("Pit strategy: Tyres: Tyre pressures: Front Right: " + tyrePressures.get(FRONT_RIGHT));
-        System.out.println("Pit strategy: Tyres: Tyre pressures: Rear Left: " + tyrePressures.get(REAR_LEFT));
-        System.out.println("Pit strategy: Tyres: Tyre pressures: Rear Right: " + tyrePressures.get(REAR_RIGHT));
-        System.out.println("Pit strategy: Front brakepad compound: " + pitStrategy.get("frontBrakePadCompound"));
-        System.out.println("Pit strategy: Rear brakepad compound:: " + pitStrategy.get("rearBrakePadCompound") + "\n"); */
+        /*
+         * System.out.println("Pit strategy data: ");
+         * 
+         * System.out.println("Pit strategy: fuel to add: " +
+         * pitStrategy.get("fuelToAdd"));
+         * System.out.println("Pit strategy: Tyre set: " + pitStrategy.get("tyreSet"));
+         * System.out.println("Pit strategy: Tyres: Tyre compound: " +
+         * tyres.get("tyreCompound"));
+         * System.out.println("Pit strategy: Tyres: Tyre pressures: Front Left: " +
+         * tyrePressures.get(FRONT_LEFT));
+         * System.out.println("Pit strategy: Tyres: Tyre pressures: Front Right: " +
+         * tyrePressures.get(FRONT_RIGHT));
+         * System.out.println("Pit strategy: Tyres: Tyre pressures: Rear Left: " +
+         * tyrePressures.get(REAR_LEFT));
+         * System.out.println("Pit strategy: Tyres: Tyre pressures: Rear Right: " +
+         * tyrePressures.get(REAR_RIGHT));
+         * System.out.println("Pit strategy: Front brakepad compound: " +
+         * pitStrategy.get("frontBrakePadCompound"));
+         * System.out.println("Pit strategy: Rear brakepad compound:: " +
+         * pitStrategy.get("rearBrakePadCompound") + "\n");
+         */
 
     }
 
@@ -73,6 +85,10 @@ public class Strategy {
 
     public double getFuelPerLap() {
         return fuelPerLap;
+    }
+
+    public JSONObject pitStrategy() {
+        return pitStrategy;
     }
 
 }

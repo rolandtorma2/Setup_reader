@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -31,10 +32,7 @@ public class Main {
         long tyreCompound = (long) setupTyres.get("tyreCompound");
         JSONArray tyrePressure = (JSONArray) setupTyres.get("tyrePressure");
 
-        Tyres tyreClass;
-        tyreClass = new Tyres((int) tyreCompound, tyrePressure);
-
-        return tyreClass;
+        return new Tyres((int) tyreCompound, tyrePressure);
     }
 
     public static Alignment saveAlignmentData(JSONObject setupAlignment) {
@@ -47,10 +45,84 @@ public class Main {
         long casterRF = (long) setupAlignment.get("casterRF");
         long steerRatio = (long) setupAlignment.get("steerRatio");
 
-        Alignment alignmentClass = new Alignment(camber, toe, staticCamber, toeOutLinear, casterLF, casterRF,
+        return new Alignment(camber, toe, staticCamber, toeOutLinear, casterLF, casterRF,
                 steerRatio);
+    }
 
-        return alignmentClass;
+    public static Electronics saveElectronicsData(JSONObject setupElectronics) {
+
+        long tC1 = (long) setupElectronics.get("tC1");
+        long tC2 = (long) setupElectronics.get("tC2");
+        long abs = (long) setupElectronics.get("abs");
+        long eCUMap = (long) setupElectronics.get("eCUMap");
+        long fuelMix = (long) setupElectronics.get("fuelMix");
+        long telemetryLaps = (long) setupElectronics.get("telemetryLaps");
+
+        return new Electronics(tC1, tC2, abs, eCUMap, fuelMix, telemetryLaps);
+
+    }
+
+    public static Strategy saveStrategyData(JSONObject setupStrategy) {
+
+        long fuel = (long) setupStrategy.get("fuel");
+        long nPitStops = (long) setupStrategy.get("nPitStops");
+        long tyreSet = (long) setupStrategy.get("tyreSet");
+        long frontBrakePadCompound = (long) setupStrategy.get("frontBrakePadCompound");
+        long rearBrakePadCompound = (long) setupStrategy.get("rearBrakePadCompound");
+        double fuelPerLap = (double) setupStrategy.get("fuelPerLap");
+
+        // Pitstrategy access code:
+        JSONArray temp = (JSONArray) setupStrategy.get("pitStrategy");
+        JSONObject pitStrategy = (JSONObject) temp.get(0);
+        JSONObject tyres = (JSONObject) pitStrategy.get("tyres");
+        JSONArray tyrePressures = (JSONArray) tyres.get("tyrePressure");
+
+        return new Strategy(fuel, nPitStops, tyreSet, frontBrakePadCompound, rearBrakePadCompound,
+                fuelPerLap, pitStrategy);
+    }
+
+    public static MechanicalBalance saveMechanicalBalanceData(JSONObject setupMechanicalBalance) {
+
+        long aRBFront = (long) setupMechanicalBalance.get("aRBFront");
+        long aRBRear = (long) setupMechanicalBalance.get("aRBRear");
+        JSONArray wheelRate = (JSONArray) setupMechanicalBalance.get("wheelRate");
+        JSONArray bumpStopRateUp = (JSONArray) setupMechanicalBalance.get("bumpStopRateUp");
+        JSONArray bumpStopRateDn = (JSONArray) setupMechanicalBalance.get("bumpStopRateDn");
+        JSONArray bumpStopWindow = (JSONArray) setupMechanicalBalance.get("bumpStopWindow");
+        long brakeTorque = (long) setupMechanicalBalance.get("brakeTorque");
+        long brakeBias = (long) setupMechanicalBalance.get("brakeBias");
+
+        return new MechanicalBalance(wheelRate, bumpStopRateUp, bumpStopRateDn,
+                bumpStopWindow, aRBFront, aRBRear, brakeTorque, brakeBias);
+    }
+
+    public static Dampers saveDampersData(JSONObject setupDampers) {
+
+        JSONArray bumpSlow = (JSONArray) setupDampers.get("bumpSlow");
+        JSONArray bumpFast = (JSONArray) setupDampers.get("bumpFast");
+        JSONArray reboundSlow = (JSONArray) setupDampers.get("reboundSlow");
+        JSONArray reboundFast = (JSONArray) setupDampers.get("reboundFast");
+
+        return new Dampers(bumpSlow, bumpFast, reboundSlow, reboundFast);
+
+    }
+
+    public static AeroBalance saveAeroBalanceData(JSONObject setupAeroBalance) {
+
+        JSONArray rideHeight = (JSONArray) setupAeroBalance.get("rideHeight");
+        JSONArray rodLength = (JSONArray) setupAeroBalance.get("rodLength");
+        long splitter = (long) setupAeroBalance.get("splitter");
+        long rearWing = (long) setupAeroBalance.get("rearWing");
+        JSONArray brakeDuct = (JSONArray) setupAeroBalance.get("brakeDuct");
+
+        return new AeroBalance(rideHeight, rodLength, brakeDuct, splitter, rearWing);
+    }
+
+    public static DriveTrain saveDriveTrainData(JSONObject setupDriveTrain) {
+
+        long preload = (long) setupDriveTrain.get("preload");
+
+        return new DriveTrain(preload);
     }
 
     public static void main(String[] args) throws FileNotFoundException, ParseException {
@@ -62,54 +134,22 @@ public class Main {
             Object object = parser.parse(strJsn);
             JSONObject mainJsonObject = (JSONObject) object;
 
-            // Car name :
-            String carName = (String) mainJsonObject.get("carName");
-            System.out.println("Car name : " + carName);
-            System.out.println();
+            JSONObject basicSetupJSON = (JSONObject) mainJsonObject.get("basicSetup");
+            JSONObject advancedSetupJSON = (JSONObject) mainJsonObject.get("advancedSetup");
 
-            // Tyres
-            JSONObject basicSetup = (JSONObject) mainJsonObject.get("basicSetup");
-            JSONObject tyres = (JSONObject) basicSetup.get("tyres");
-            Tyres x = saveTyreData(tyres);
+            BasicSetup basicSetup = new BasicSetup(saveTyreData((JSONObject) basicSetupJSON.get("tyres")),
+                    saveAlignmentData((JSONObject) basicSetupJSON.get("alignment")),
+                    saveElectronicsData((JSONObject) basicSetupJSON.get("electronics")),
+                    saveStrategyData((JSONObject) basicSetupJSON.get("strategy")));
 
-            // Alignment
-            JSONObject alignment = (JSONObject) basicSetup.get("alignment");
-            Alignment y = saveAlignmentData(alignment);
+            AdvancedSetup advancedSetup = new AdvancedSetup(
+                    saveMechanicalBalanceData((JSONObject) advancedSetupJSON.get("mechanicalBalance")),
+                    saveDampersData((JSONObject) advancedSetupJSON.get("dampers")),
+                    saveAeroBalanceData((JSONObject) advancedSetupJSON.get("aeroBalance")),
+                    saveDriveTrainData((JSONObject) advancedSetupJSON.get("drivetrain")));
 
-            // Electronics
-            JSONObject electronics = (JSONObject) basicSetup.get("electronics");
-
-            // getting the electronics data
-            long tC1 = (long) electronics.get("tC1");
-            long tC2 = (long) electronics.get("tC2");
-            long abs = (long) electronics.get("abs");
-            long eCUMap = (long) electronics.get("eCUMap");
-            long fuelMix = (long) electronics.get("fuelMix");
-            long telemetryLaps = (long) electronics.get("telemetryLaps");
-            // making electronic class
-            Electronics electronicsClass = new Electronics(tC1, tC2, abs, eCUMap, fuelMix, telemetryLaps);
-
-            // TRACTION CONTROL
-            System.out.println("Traction Control 1 power : " + tC1);
-            System.out.println("Traction Control 2 power : " + tC2);
-            // ABS
-            System.out.println("Abs power : " + abs);
-            // ECU
-            System.out.println("ECU Mapping level : " + eCUMap);
-            // FUEL MIX
-            System.out.println("Fuel mix : " + fuelMix);
-            // TELEMETRY
-            System.out.println("Telemetry laps: " + telemetryLaps);
-
-            // Strategy
-            JSONObject strategy = (JSONObject) basicSetup.get("strategy");
-
-            long fuel = (long) strategy.get("fuel");
-            long nPitStops = (long) strategy.get("nPitStops");
-            long tyreSet = (long) strategy.get("tyreSet");
-            long frontBrakePadCompound = (long) strategy.get("frontBrakePadCompound");
-            long rearBrakePadCompound = (long) strategy.get("rearBrakePadCompound");
-            double fuelPerLap = (double) strategy.get("fuelPerLap");
+            Setup setup = new Setup((String) mainJsonObject.get("carName"), basicSetup, advancedSetup,
+                    (long) mainJsonObject.get("trackBopType"));
 
         } catch (Exception ex) {
             ex.printStackTrace();
