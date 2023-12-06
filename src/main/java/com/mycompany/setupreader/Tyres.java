@@ -22,6 +22,7 @@ public class Tyres {
     public Tyres(int tyreCompound, JSONArray tyrePressure) {
         this.tyreCompound = tyreCompound;
         this.tyrePressure.addAll(tyrePressure);
+        printValues();
 
     }
 

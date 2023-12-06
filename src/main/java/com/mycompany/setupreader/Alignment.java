@@ -13,7 +13,7 @@ public class Alignment {
     long casterRF;
     long steerRatio;
 
-    public void printAlignmentValues() {
+    public void printValues() {
         System.out.println("Front left camber : " + this.camber.get(Utils.CAMBER_FRONT_LEFT) + "%");
         System.out.println("Front right camber : " + this.camber.get(Utils.CAMBER_FRONT_RIGHT) + "%");
         System.out.println("Rear left camber : " + this.camber.get(Utils.CAMBER_REAR_LEFT) + "%");
@@ -58,6 +58,7 @@ public class Alignment {
         this.casterLF = casterLF;
         this.casterRF = casterRF;
         this.steerRatio = steerRatio;
+        printValues();
     }
 
     public List getCamber() {

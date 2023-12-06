@@ -52,6 +52,7 @@ public class Main {
 
         return alignmentClass;
     }
+
     public static void main(String[] args) throws FileNotFoundException, ParseException {
 
         String strJsn = getJson("./src/main/resources/testresource.json");
