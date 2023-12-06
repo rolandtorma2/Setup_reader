@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Savepoint;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -166,19 +168,19 @@ public class Main {
             Strategy s = saveStrategyData(strategy);
 
             JSONObject mechanicalBalance = (JSONObject) advancedSetup.get("mechanicalBalance");
-            Strategy mB = saveStrategyData(mechanicalBalance);
+            MechanicalBalance mB = saveMechanicalBalanceData(mechanicalBalance);
 
             JSONObject dampers = (JSONObject) advancedSetup.get("dampers");
-            Strategy d = saveStrategyData(dampers);
+            Dampers d = saveDampersData(dampers);
 
             JSONObject aeroBalance = (JSONObject) advancedSetup.get("aeroBalance");
-            Strategy aB = saveStrategyData(aeroBalance);
+            AeroBalance aB = saveAeroBalanceData(aeroBalance);
 
             JSONObject drivetrain = (JSONObject) advancedSetup.get("drivetrain");
-            Strategy dT = saveStrategyData(drivetrain);
+            DriveTrain dT = saveDriveTrainData(drivetrain);
 
             long trackBopType = (long) mainJsonObject.get("trackBopType");
-            System.out.println(trackBopType);
+            System.out.println("Track BoP Type: " + trackBopType);
 
         } catch (Exception ex) {
             ex.printStackTrace();
