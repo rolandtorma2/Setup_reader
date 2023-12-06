@@ -10,9 +10,21 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**
+ * Class responsible for reading and processing setup data from a JSON file.
+ */
+
 public class Main {
 
-    public static String getJson(String filename) throws FileNotFoundException {
+    /**
+     * Reads the contents of a file and returns it as a string.
+     *
+     * @param filename The name of the file to read.
+     * @return The contents of the file as a string.
+     * @throws FileNotFoundException If the specified file is not found.
+     */
+
+    public static String getJson(String filename) throws FileNotFoundException { // method implementation
         String jsonText = "";
 
         try {
@@ -28,12 +40,26 @@ public class Main {
         return jsonText;
     }
 
+    /**
+     * Parses and saves tyre setup data from a JSON object.
+     *
+     * @param setupTyres The JSON object containing tyre setup data.
+     * @return An instance of the Tyres class with the parsed data.
+     */
+
     public static Tyres saveTyreData(JSONObject setupTyres) {
         long tyreCompound = (long) setupTyres.get("tyreCompound");
         JSONArray tyrePressure = (JSONArray) setupTyres.get("tyrePressure");
 
         return new Tyres((int) tyreCompound, tyrePressure);
     }
+
+    /**
+     * Parses and saves alignment setup data from a JSON object.
+     *
+     * @param setupAlignment The JSON object containing alignment setup data.
+     * @return An instance of the Alignment class with the parsed data.
+     */
 
     public static Alignment saveAlignmentData(JSONObject setupAlignment) {
 
@@ -49,6 +75,13 @@ public class Main {
                 steerRatio);
     }
 
+    /**
+     * Parses and saves electronics setup data from a JSON object.
+     *
+     * @param setupElectronics The JSON object containing electronics setup data.
+     * @return An instance of the Electronics class with the parsed data.
+     */
+
     public static Electronics saveElectronicsData(JSONObject setupElectronics) {
 
         long tC1 = (long) setupElectronics.get("tC1");
@@ -59,9 +92,14 @@ public class Main {
         long telemetryLaps = (long) setupElectronics.get("telemetryLaps");
 
         return new Electronics(tC1, tC2, abs, eCUMap, fuelMix, telemetryLaps);
-
     }
 
+    /**
+     * Parses and saves strategy setup data from a JSON object.
+     *
+     * @param setupStrategy The JSON object containing strategy setup data.
+     * @return An instance of the Strategy class with the parsed data.
+     */
     public static Strategy saveStrategyData(JSONObject setupStrategy) {
 
         long fuel = (long) setupStrategy.get("fuel");
@@ -70,7 +108,6 @@ public class Main {
         long frontBrakePadCompound = (long) setupStrategy.get("frontBrakePadCompound");
         long rearBrakePadCompound = (long) setupStrategy.get("rearBrakePadCompound");
         double fuelPerLap = (double) setupStrategy.get("fuelPerLap");
-
         // Pitstrategy access code:
         JSONArray temp = (JSONArray) setupStrategy.get("pitStrategy");
         JSONObject pitStrategy = (JSONObject) temp.get(0);
@@ -81,6 +118,13 @@ public class Main {
                 fuelPerLap, pitStrategy);
     }
 
+    /**
+     * Parses and saves mechanical balance setup data from a JSON object.
+     *
+     * @param setupMechanicalBalance The JSON object containing mechanical balance
+     *                               setup data.
+     * @return An instance of the MechanicalBalance class with the parsed data.
+     */
     public static MechanicalBalance saveMechanicalBalanceData(JSONObject setupMechanicalBalance) {
 
         long aRBFront = (long) setupMechanicalBalance.get("aRBFront");
@@ -96,6 +140,12 @@ public class Main {
                 bumpStopWindow, aRBFront, aRBRear, brakeTorque, brakeBias);
     }
 
+    /**
+     * Parses and saves dampers setup data from a JSON object.
+     *
+     * @param setupDampers The JSON object containing dampers setup data.
+     * @return An instance of the Dampers class with the parsed data.
+     */
     public static Dampers saveDampersData(JSONObject setupDampers) {
 
         JSONArray bumpSlow = (JSONArray) setupDampers.get("bumpSlow");
@@ -104,9 +154,14 @@ public class Main {
         JSONArray reboundFast = (JSONArray) setupDampers.get("reboundFast");
 
         return new Dampers(bumpSlow, bumpFast, reboundSlow, reboundFast);
-
     }
 
+    /**
+     * Parses and saves aero balance setup data from a JSON object.
+     *
+     * @param setupAeroBalance The JSON object containing aero balance setup data.
+     * @return An instance of the AeroBalance class with the parsed data.
+     */
     public static AeroBalance saveAeroBalanceData(JSONObject setupAeroBalance) {
 
         JSONArray rideHeight = (JSONArray) setupAeroBalance.get("rideHeight");
@@ -118,13 +173,26 @@ public class Main {
         return new AeroBalance(rideHeight, rodLength, brakeDuct, splitter, rearWing);
     }
 
+    /**
+     * Parses and saves drivetrain setup data from a JSON object.
+     *
+     * @param setupDriveTrain The JSON object containing drivetrain setup data.
+     * @return An instance of the DriveTrain class with the parsed data.
+     */
     public static DriveTrain saveDriveTrainData(JSONObject setupDriveTrain) {
-
         long preload = (long) setupDriveTrain.get("preload");
 
         return new DriveTrain(preload);
     }
 
+    /**
+     * The main entry point of the program. Reads JSON data, processes and prints
+     * setup information.
+     *
+     * @param args Command line arguments (not used in this application).
+     * @throws FileNotFoundException If the specified JSON file is not found.
+     * @throws ParseException        If there is an error parsing the JSON file.
+     */
     public static void main(String[] args) throws FileNotFoundException, ParseException {
 
         String strJsn = getJson("./src/main/resources/testresource.json");
