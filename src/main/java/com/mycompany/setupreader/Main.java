@@ -114,10 +114,15 @@ public class Main {
         long frontBrakePadCompound = (long) setupStrategy.get("frontBrakePadCompound");
         long rearBrakePadCompound = (long) setupStrategy.get("rearBrakePadCompound");
         double fuelPerLap = (double) setupStrategy.get("fuelPerLap");
-        JSONObject pitStratgy = (JSONObject) setupStrategy.get("pitStrategy");
+
+        // Pitstrategy access code:
+        JSONArray temp = (JSONArray) setupStrategy.get("pitStrategy");
+        JSONObject pitStrategy = (JSONObject) temp.get(0);
+        JSONObject tyres = (JSONObject) pitStrategy.get("tyres");
+        JSONArray tyrePressures = (JSONArray) tyres.get("tyrePressure");
 
         Strategy strategyClass = new Strategy(fuel, nPitStops, tyreSet, frontBrakePadCompound, rearBrakePadCompound,
-                fuelPerLap, pitStratgy);
+                fuelPerLap, pitStrategy);
         return strategyClass;
     }
 
