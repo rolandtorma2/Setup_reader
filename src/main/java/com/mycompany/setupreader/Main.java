@@ -123,6 +123,7 @@ public class Main {
 
         Strategy strategyClass = new Strategy(fuel, nPitStops, tyreSet, frontBrakePadCompound, rearBrakePadCompound,
                 fuelPerLap, pitStrategy);
+
         return strategyClass;
     }
 
