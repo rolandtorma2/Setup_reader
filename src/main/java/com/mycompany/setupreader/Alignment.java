@@ -3,10 +3,12 @@ package com.mycompany.setupreader;
 import java.util.ArrayList;
 import java.util.List;
 
-    /**
-     * The Alignment class represents the alignment configuration for a car setup,
-     * including parameters such as camber, toe, static camber, toe out linear, caster, and steer ratio.
-     */
+/**
+ * The Alignment class represents the alignment configuration of a vehicle,
+ * including camber, toe, static camber, toe-out linear, caster for left and
+ * right front wheels,
+ * and the steering ratio setting.
+ */
 public class Alignment {
 
     List camber = new ArrayList();
@@ -45,26 +47,58 @@ public class Alignment {
         return camber;
     }
 
+    /**
+     * Gets the list of toe settings of this Alignment configuration.
+     *
+     * @return The list of toe settings.
+     */
     public List getToe() {
         return toe;
     }
 
+    /**
+     * Gets the list of static camber settings of this Alignment configuration.
+     *
+     * @return The list of static camber settings.
+     */
     public List getStaticCamber() {
         return staticCamber;
     }
 
+    /**
+     * Gets the list of toe-out linear settings of this Alignment configuration.
+     *
+     * @return The list of toe-out linear settings.
+     */
     public List getToeOutLinear() {
         return toeOutLinear;
     }
 
+    /**
+     * Gets the caster setting for the left front wheel of this Alignment
+     * configuration.
+     *
+     * @return The caster setting for the left front wheel.
+     */
     public long getCasterLF() {
         return casterLF;
     }
 
+    /**
+     * Gets the caster setting for the right front wheel of this Alignment
+     * configuration.
+     *
+     * @return The caster setting for the right front wheel.
+     */
     public long getCasterRF() {
         return casterRF;
     }
 
+    /**
+     * Gets the steering ratio setting of this Alignment configuration.
+     *
+     * @return The steering ratio setting.
+     */
     public long getSteerRatio() {
         return steerRatio;
     }
