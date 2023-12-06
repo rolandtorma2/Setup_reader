@@ -2,6 +2,8 @@ package com.mycompany.setupreader;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Strategy {
@@ -23,6 +25,7 @@ public class Strategy {
         this.rearBrakePadCompound = rearBrakePadCompound;
         this.fuelPerLap = fuelPerLap;
         this.pitStrategy = pitStrategy;
+
     }
 
     public long getFuel() {
@@ -47,6 +50,10 @@ public class Strategy {
 
     public double getFuelPerLap() {
         return fuelPerLap;
+    }
+
+    public JSONObject pitStrategy() {
+        return pitStrategy;
     }
 
 }
