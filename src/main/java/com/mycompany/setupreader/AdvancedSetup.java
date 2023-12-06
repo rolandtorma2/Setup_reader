@@ -6,8 +6,11 @@ public class AdvancedSetup {
     AeroBalance aeroBalance;
     DriveTrain drivetrain;
 
-    public AdvancedSetup(MechanicalBalance mechanicalBalance) {
+    public AdvancedSetup(MechanicalBalance mechanicalBalance, Dampers dampers, AeroBalance aeroBalance, DriveTrain driveTrain) {
         this.mechanicalBalance = mechanicalBalance;
+        this.dampers = dampers;
+        this.aeroBalance = aeroBalance;
+        this.drivetrain = driveTrain;
     }
 
     public MechanicalBalance getMechanicalBalance() {
