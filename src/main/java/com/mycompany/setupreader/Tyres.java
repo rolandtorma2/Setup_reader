@@ -10,7 +10,6 @@ import org.json.simple.JSONArray;
  */
 public class Tyres {
 
-    // Variables to store tyre information
     int tyreCompound;
     List tyrePressure = new ArrayList();
 

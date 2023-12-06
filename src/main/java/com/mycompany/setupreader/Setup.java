@@ -6,7 +6,6 @@ package com.mycompany.setupreader;
  */
 public class Setup {
 
-    // Variables to store setup information
     String carName;
     BasicSetup basicSetup;
     AdvancedSetup advancedSetup;

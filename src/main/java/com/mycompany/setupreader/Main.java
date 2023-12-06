@@ -180,10 +180,7 @@ public class Main {
      * @return An instance of the DriveTrain class with the parsed data.
      */
     public static DriveTrain saveDriveTrainData(JSONObject setupDriveTrain) {
-
         long preload = (long) setupDriveTrain.get("preload");
-
-        DriveTrain driveTrainData = new DriveTrain(preload);
 
         return new DriveTrain(preload);
     }

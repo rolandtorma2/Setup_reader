@@ -12,7 +12,6 @@ import java.util.List;
  */
 public class MechanicalBalance {
 
-    // Variables to store mechanical balance information
     List wheelRate = new ArrayList();
     List bumpStopRateUp = new ArrayList();
     List bumpStopRateDn = new ArrayList();

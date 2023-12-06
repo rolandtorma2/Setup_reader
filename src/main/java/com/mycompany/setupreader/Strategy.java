@@ -18,7 +18,6 @@ import org.json.simple.JSONObject;
  */
 public class Strategy {
 
-    // Variables to store strategy information
     JSONObject pitStrategy;
     long fuel;
     long nPitStops;
