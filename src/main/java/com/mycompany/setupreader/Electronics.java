@@ -35,6 +35,25 @@ public class Electronics {
      * @param fuelMix       The fuel mix setting.
      * @param telemetryLaps The number of laps for telemetry data recording.
      */
+    public void printValues() {
+
+        System.out.println("Traction Control data: ");
+        System.out.println("Traction Control 1 power: " + this.tC1);
+        System.out.println("Traction Control 2 power: " + this.tC2);
+
+        System.out.println("Abs data: ");
+        System.out.println("Abs power: " + this.abs);
+
+        System.out.println("ECU data: ");
+        System.out.println("ECU Mapping level: " + this.eCUMap);
+
+        System.out.println("Fuel data: ");
+        System.out.println("Fuel mix: " + this.fuelMix);
+
+        System.out.println("Telemetry data: ");
+        System.out.println("Telemetry laps: " + this.telemetryLaps + "\n");
+    }
+
     public Electronics(long tC1, long tC2, long abs, long eCUMap, long fuelMix, long telemetryLaps) {
         this.tC1 = tC1;
         this.tC2 = tC2;
@@ -42,6 +61,7 @@ public class Electronics {
         this.eCUMap = eCUMap;
         this.fuelMix = fuelMix;
         this.telemetryLaps = telemetryLaps;
+        printValues();
     }
 
     /**

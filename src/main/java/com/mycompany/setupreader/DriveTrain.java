@@ -13,8 +13,14 @@ public class DriveTrain {
      *
      * @param preload The preload setting for the drivetrain.
      */
+    public void printValues() {
+
+        System.out.println("Drivetrain preload: " + this.preload);
+    }
+
     public DriveTrain(long preload) {
         this.preload = preload;
+        printValues();
     }
 
     /**

@@ -15,6 +15,7 @@ public class Tyres {
     List tyrePressure = new ArrayList();
 
     /**
+
      * Constructs a Tyres instance with specified tyre configuration parameters.
      *
      * @param tyreCompound The tyre compound setting.
@@ -23,6 +24,21 @@ public class Tyres {
     public Tyres(int tyreCompound, JSONArray tyrePressure) {
         this.tyreCompound = tyreCompound;
         this.tyrePressure.addAll(tyrePressure);
+
+    public void printValues() {
+
+        System.out.println("Tyre Pressures : ");
+        System.out.println("Front Left Tyre : " + this.tyrePressure.get(Utils.FRONT_LEFT) + " psi");
+        System.out.println("Front Right Tyre : " + this.tyrePressure.get(Utils.FRONT_RIGHT) + " psi");
+        System.out.println("Rear Left Tyre : " + this.tyrePressure.get(Utils.REAR_LEFT) + " psi");
+        System.out.println("Rear Right Tyre : " + this.tyrePressure.get(Utils.REAR_RIGHT) + " psi\n");
+    }
+
+    public Tyres(int tyreCompound, JSONArray tyrePressure) {
+        this.tyreCompound = tyreCompound;
+        this.tyrePressure.addAll(tyrePressure);
+        printValues();
+
     }
 
     /**
